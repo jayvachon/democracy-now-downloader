@@ -6,6 +6,7 @@ installation
 ------------
 ```
 git clone https://github.com/jayvachon/democracy-now-downloader.git
+cd democracy-now-downloader
 npm install
 ```
 
