@@ -1,0 +1,19 @@
+{
+  "name": "democracy-now-downloader",
+  "version": "1.0.0",
+  "description": "downloads democracy now shows",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "appleslerp",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.2.0",
+    "cheerio": "^0.22.0",
+    "command-line-commands": "^2.0.0",
+    "fs-extra": "^2.1.2",
+    "request": "^2.81.0",
+    "request-progress": "^3.0.0"
+  }
+}
