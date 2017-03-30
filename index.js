@@ -87,7 +87,7 @@ if (command === 'list') {
 }
 
 // download the latest show (and play, if the 'dap' command was given)
-if (command === 'download' || command === 'dap') {
+if (!command || command === 'download' || command === 'dap') {
 
 	async.waterfall([
 
