@@ -33,3 +33,5 @@ if you didn't create the alias, instead of using `dn` you'll want to use `node i
 * `dn play` ~ plays the latest show
 * `dn list` ~ lists the shows you've downloaded
 * `dn clean` ~ deletes all the shows you've downloaded
+
+by default, simply running `dn` will default to the `dn dap` command
