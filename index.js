@@ -19,6 +19,8 @@ var data 		= './data.json';
 const validCommands = [ null, 'download', 'play', 'dap', 'clean', 'list' ];
 const { command, argv } = commands(validCommands);
 
+if (!command) command = 'dap';
+
 // write to a JSON file to track the latest downloaded show
 function saveData(latestShow, cb) {
 	fs.writeJson(data, { latestShow: latestShow }, err => {
@@ -87,7 +89,7 @@ if (command === 'list') {
 }
 
 // download the latest show (and play, if the 'dap' command was given)
-if (!command || command === 'download' || command === 'dap') {
+if (command === 'download' || command === 'dap') {
 
 	async.waterfall([
 
