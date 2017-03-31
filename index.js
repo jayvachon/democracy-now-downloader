@@ -127,7 +127,8 @@ if (!command || command === 'download' || command === 'dap') {
 
 				console.info('Downloading the latest show...');
 				
-				fs.mkdirSync(showsRoot);
+				fs.mkdirpSync(showsRoot);
+
 				progress(request(downloadUrl))
 				.on('progress', function (state) {
 					console.log('progress', Math.round(state.percent * 100) + '%');
