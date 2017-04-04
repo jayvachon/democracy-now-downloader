@@ -17,7 +17,7 @@ var data 		= './data.json';
 
 // configure valid commands
 const validCommands = [ null, 'download', 'play', 'dap', 'clean', 'list' ];
-const { command, argv } = commands(validCommands);
+var { command, argv } = commands(validCommands);
 
 if (!command) command = 'dap';
 
