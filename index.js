@@ -12,8 +12,8 @@ var request 	= require('request'),
 // configure paths and urls
 var downloadUrl, fileName, fileExists;
 var showsUrl 	= 'https://www.democracynow.org/shows';
-var showsRoot 	= './shows/';
-var data 		= './data.json';
+var showsRoot 	= 'shows/';
+var data 		= 'data.json';
 
 // configure valid commands
 const validCommands = [ null, 'download', 'play', 'dap', 'clean', 'list' ];
