@@ -1,4 +1,5 @@
+.DS_Store
 /node_modules
 /shows
-*.sublime-*
+*.sublime-workspace
 data.json
