@@ -7,12 +7,13 @@ var request 	= require('request'),
 	async 		= require('async'),
 	fs			= require('fs-extra'),
 	commands	= require('command-line-commands'),
+	path 		= require('path'),
 	exec		= require('child_process').exec;
 
 // configure paths and urls
 var downloadUrl, fileName, fileExists;
 var showsUrl 	= 'https://www.democracynow.org/shows';
-var showsRoot 	= 'shows/';
+var showsRoot 	= path.resolve(__dirname, 'shows');
 var data 		= 'data.json';
 
 // configure valid commands
@@ -52,7 +53,8 @@ function playShow(cb) {
 		}
 		console.info('Playing latest show');
 		fs.readJson(data, (err, obj) => {
-			var cmd = 'open shows/' + obj.latestShow;
+			// var cmd = 'open /Users/jay/node/democracy-now-downloader/shows/' + obj.latestShow;
+			var cmd = 'open ' + path.resolve(showsRoot, obj.latestShow);
 			exec(cmd, function(err, stdout, stderr) {
 				if (err) {
 					return console.error(err);
@@ -116,7 +118,7 @@ if (command === 'download' || command === 'dap') {
 			fileName = downloadUrl.split('/');
 			fileName = fileName[fileName.length-1];
 
-			doesFileExist(showsRoot + fileName, exists => {
+			doesFileExist(path.resolve(showsRoot, fileName), exists => {
 				fileExists = exists;
 				cb();
 			});
@@ -142,7 +144,7 @@ if (command === 'download' || command === 'dap') {
 					console.info('Download complete');
 					cb();
 				})
-				.pipe(fs.createWriteStream(showsRoot + fileName));
+				.pipe(fs.createWriteStream(path.resolve(showsRoot, fileName)));
 
 			} else {
 				console.info('Latest show has already been downloaded');
